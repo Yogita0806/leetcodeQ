@@ -1,0 +1,18 @@
+int n=s.length();
+        char[] words = new char[n];
+        for(int i=0;i<n;i++)
+        {
+            words[i]=s.charAt(i);
+        }
+
+
+        char[] reverse= new char[words.length];
+        for(int i=n-1;i>=0;i--)
+        {
+            reverse[(n-1)-i] = words[i];
+        }
+        StringBuilder con = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            con.append(reverse[i]);
+        }
+        return con.toString();
