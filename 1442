@@ -1,0 +1,32 @@
+class Solution {
+    public int countTriplets(int[] arr) {
+        int[] xor_till=new int[arr.length];
+        int a=0,b=0;
+        int count=0;
+        xor_till[0]=arr[0];
+        for(int i=1;i<arr.length;i++){
+            xor_till[i]=xor_till[i-1]^arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(i==0){
+                    a=xor_till[j-1];
+                }
+                else{
+                    a=xor_till[i-1]^xor_till[j-1];
+                }
+                for(int k=j;k<arr.length;k++){
+                    b=xor_till[j-1]^xor_till[k];
+                    if(a==b){
+                        count++;
+                        
+                    }
+                }
+            }
+            
+        }
+        // System.out.println(l);
+        
+        return count;
+    }
+}
